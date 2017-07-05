@@ -1,0 +1,40 @@
+
+http://localhost:8000 ;run laravel
+
+welcome.blade.php, found in the directory resources/views/
+ app/Http/Controllers/WelcomeController.php: controls home page.
+
+app/Http/routes.php ;manage routes
+ AuthController.php and PasswordController.php
+You can define multiple URIs and their associated controllers by passing
+them into the Route::controllers method.
+ Route::controllers([
+ 'lists' => 'ListsController',
+ 'tasks' => 'TasksController',
+ ]);
+
+$ php artisan make:controller --plain AboutController ;create about page
+ modify index
+ create a new directory named about in your resources/views directory,    create a file named index.blade.php
+ add content
+ open up the routes.php file & type
+	Route::get('/about', 'AboutController@index');
+
+return view('welcome')->with('name', 'San Juan Vacation'); //display var
+
+{{ 'My list <script>alert("spam spam spam!")</script>' }} //double-brace to prevent dangerous input
+
+use Blade syntax to create a master layout
+ create a directory within resources/views called layouts, 
+ and create master.blade.php inside it.
+@yield('content') //in master file
+
+<img src="/images/logo.png" alt="TODOParrot logo" />
+{!! HTML::image('images/logo.png', 'TODOParrot logo') !!}
+
+{!! HTML::style('css/app.min.css') !!}  //link css
+{!! HTML::script('javascript/jquery-1.10.1.min.js') !!}
+
+Node.js
+Gulp
+Elixir
